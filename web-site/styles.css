@@ -1,0 +1,458 @@
+/* General Styles for Mobile */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px; /* Smaller font size for mobile */
+  }
+
+  .page {
+    width: 90%; /* Make the quiz container narrower */
+    padding: 15px; /* Reduce padding */
+  }
+
+  h1 {
+    font-size: 24px; /* Smaller heading size */
+  }
+
+  h2 {
+    font-size: 20px; /* Smaller question size */
+  }
+
+  input, button {
+    width: 100%; /* Full-width inputs and buttons */
+    font-size: 14px; /* Smaller font size */
+    padding: 8px; /* Smaller padding */
+  }
+
+  #options .option {
+    width: 100%; /* Full-width options */
+    font-size: 14px; /* Smaller font size */
+    padding: 8px; /* Smaller padding */
+  }
+
+  #timer-container {
+    flex-direction: column; /* Stack timer and circle vertically */
+    gap: 5px; /* Reduce gap between elements */
+  }
+
+  #timer {
+    font-size: 20px; /* Smaller timer text */
+  }
+
+  #timer-circle {
+    width: 50px; /* Smaller circle */
+    height: 50px;
+  }
+
+  #timer-circle-background,
+  #timer-circle-progress {
+    stroke-width: 4; /* Thinner stroke */
+  }
+
+  #progress-bar-container {
+    height: 8px; /* Thinner progress bar */
+  }
+
+  #progress-bar {
+    height: 8px; /* Thinner progress bar */
+  }
+
+  #share-buttons {
+    flex-direction: column; /* Stack share buttons vertically */
+    gap: 5px; /* Reduce gap between buttons */
+  }
+
+  #share-buttons button {
+    width: 100%; /* Full-width share buttons */
+    font-size: 14px; /* Smaller font size */
+    padding: 8px; /* Smaller padding */
+  }
+
+  #restart-btn {
+    width: 100%; /* Full-width restart button */
+    font-size: 14px; /* Smaller font size */
+    padding: 8px; /* Smaller padding */
+  }
+}
+
+/* Share Buttons */
+#share-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+#share-buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#share-telegram {
+  background: #0088cc;
+  color: white;
+}
+
+#share-vk {
+  background: #4a76a8;
+  color: white;
+}
+
+#share-sms {
+  background: #4caf50;
+  color: white;
+}
+
+#share-buttons button:hover {
+  transform: scale(1.05);
+}
+
+/* Timer Styles */
+/* Timer Container */
+#timer-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* Timer Text */
+#timer {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff6f61;
+  animation: pulse 1s infinite alternate;
+}
+
+/* Timer Circle (SVG) */
+#timer-circle {
+  transform: rotate(-90deg); /* Start from the top */
+}
+
+#timer-circle-background {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.2);
+  stroke-width: 5;
+}
+
+#timer-circle-progress {
+  fill: none;
+  stroke: #ff6f61;
+  stroke-width: 5;
+  stroke-dasharray: 157; /* Circumference of the circle (2 * π * r) */
+  stroke-dashoffset: 157; /* Start with no progress */
+  transition: stroke-dashoffset 1s linear;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb, #fbc2eb, #a6c1ee, #4b6cb7, #182848);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+body.dark-theme {
+  background: linear-gradient(135deg, #1e3c72, #2a5298, #1c1c1c, #3a3a3a);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.page {
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, background 0.5s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+body.dark-theme .page {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.page.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hidden {
+  display: none;
+}
+
+input, button {
+  padding: 10px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+input {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+input:focus {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+button {
+  background: #ff6f61;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background: #ff3b2f;
+  transform: scale(1.05);
+}
+
+#options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.option {
+  padding: 10px;
+  margin: 5px;
+  width: 80%;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+body.dark-theme .option {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.option:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.option.correct {
+  background: #4caf50;
+  animation: correct 0.5s ease forwards;
+}
+
+body.dark-theme .option.correct {
+  background: #4caf50; /* Keep the same color for visibility */
+}
+
+.option.wrong {
+  background: #f44336;
+  animation: wrong 0.5s ease forwards;
+}
+
+body.dark-theme .option.wrong {
+  background: #f44336; /* Keep the same color for visibility */
+}
+
+@keyframes correct {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes wrong {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  50% { transform: translateX(10px); }
+  100% { transform: translateX(0); }
+}
+
+/* Theme Switcher Button */
+.theme-switcher {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.theme-switcher:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+/* Progress Bar */
+#progress-bar-container {
+  width: 100%;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+#progress-bar {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #ff6f61, #ff3b2f, #ff6f61); /* Gradient for the progress bar */
+  border-radius: 5px;
+  transition: width 0.5s ease;
+  background-size: 200% 100%; /* For animation */
+  animation: progressGradient 2s linear infinite; /* Animation for gradient */
+}
+
+/* Gradient Animation */
+@keyframes progressGradient {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+/* Additional Animations */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#quiz-page.fade-out {
+  animation: fadeOut 0.5s ease forwards;
+}
+
+#quiz-page.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+#start-page.active, #quiz-page.active, #end-page.active {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+#options .option {
+  animation: slideIn 0.5s ease forwards;
+  animation-delay: calc(var(--index) * 0.1s);
+}
+
+@keyframes correctAnswer {
+  0% {
+    transform: scale(1);
+    background: #4caf50;
+  }
+  50% {
+    transform: scale(1.1);
+    background: #66bb6a;
+  }
+  100% {
+    transform: scale(1);
+    background: #4caf50;
+  }
+}
+
+@keyframes wrongAnswer {
+  0% {
+    transform: translateX(0);
+    background: #f44336;
+  }
+  25% {
+    transform: translateX(-10px);
+    background: #ef5350;
+  }
+  50% {
+    transform: translateX(10px);
+    background: #f44336;
+  }
+  75% {
+    transform: translateX(-5px);
+    background: #ef5350;
+  }
+  100% {
+    transform: translateX(0);
+    background: #f44336;
+  }
+}
+
+.option.correct {
+  animation: correctAnswer 0.5s ease forwards;
+}
+
+.option.wrong {
+  animation: wrongAnswer 0.5s ease forwards;
+}
+
+#quiz-page {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
