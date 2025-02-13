@@ -1,5 +1,6 @@
 # IT project, by Petrov Dmitry aka Hornybite. School №56, 9V form.
 ---
+https://h3lpm3.vercel.app/
 ## About quiz-website
 > I have to mention, I am not professional at making websites. Warning: huge amount of trashcode.
 Quiz I made is an interactive way to test your knowledge about operating systems and the history of Linux! This app is designed to provide an engaging quiz experience with features like a timer, progress bar, sound effects, and even confetti animations when you finish the quiz.
