@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Опрос по реферату</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Theme Switcher Button -->
+  <button id="theme-switcher" class="theme-switcher">🌙</button>
+
+  <!-- Start Page -->
+  <div id="start-page" class="page active">
+    <h1 id="greeting"></h1>
+    <h1>Приветствуем вас!</h1>
+    <input type="text" id="name" placeholder="Введите ваше имя" required>
+    <button id="start-btn">Начать опрос</button>
+  </div>
+
+  <!-- Quiz Page -->
+<div id="quiz-page" class="page hidden">
+  <div id="progress-bar-container">
+    <div id="progress-bar"></div>
+  </div>
+  <div id="timer-container">
+    <div id="timer">15</div>
+    <svg id="timer-circle" width="60" height="60">
+      <circle id="timer-circle-background" cx="30" cy="30" r="25" />
+      <circle id="timer-circle-progress" cx="30" cy="30" r="25" />
+    </svg>
+  </div>
+  <h2 id="question"></h2>
+  <div id="options"></div>
+  <button id="next-btn" class="hidden">Далее</button>
+</div>
+
+<!-- End Page -->
+<div id="end-page" class="page hidden">
+  <h1>Опрос окончен!</h1>
+  <p id="score-message"></p>
+  <div id="share-buttons">
+    <button id="share-telegram">Поделиться в Telegram</button>
+    <button id="share-vk">Поделиться в VK</button>
+    <button id="share-sms">Поделиться по SMS</button>
+  </div>
+  <button id="restart-btn">Попробовать снова</button>
+</div>
+  <!-- Audio elements for sound effects -->
+  <audio id="button-click-sound" src="button-click.mp3"></audio>
+  <audio id="correct-answer-sound" src="correct-answer.mp3"></audio>
+  <audio id="wrong-answer-sound" src="wrong-answer.mp3"></audio>
+
+  <!-- Include canvas-confetti library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
